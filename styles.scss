@@ -1,0 +1,170 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%; 
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  background: #333;
+  color: #fff;
+  
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+h1 {
+  font-size: 6.2rem;
+}
+
+
+section {
+  padding: 0 2.4rem;
+  min-height: 100vh;
+}
+
+// HERO
+
+.hero {
+ 
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  display: flex;
+  background-image: url(./images/profile_2_var1.png);
+  background-size:cover;
+  background-repeat: no-repeat;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  letter-spacing: 5px;
+  font-weight: 700;
+
+
+
+  .text-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .word-wrapper {
+    overflow: hidden;
+  }
+
+
+  .text {
+    opacity: 0;
+    transform: rotateX(-100deg) translateY(-100%);
+    animation: textMove 0.8s ease-in forwards, 
+    textRotate 0.6s ease-in forwards, 
+    textOpacity 1s ease-in forwards;
+
+    &.name {
+      color: #4C8C9D;
+    }
+
+    &.role {
+      font-weight: 300;
+      font-size: 5.2rem;
+    }
+
+    &.text-1 {
+      animation-delay: 0s;
+    }
+
+    &.text-2 {
+      animation-delay: 0.5s;
+    }
+
+    &.text-3 {
+      animation-delay: 1s;
+    }
+  }
+
+
+  @keyframes textMove {
+    100% {
+      transform: translateY(0%);
+    }
+  }
+
+  @keyframes textOpacity {
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes textRotate {
+    100% {
+      transform: rotateX(0deg);
+    }
+  }
+
+  .button-wrapper {
+    position: relative;
+    padding: 3.2rem 0;
+  
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+
+  }
+    
+  button {
+    background: none;
+    color: #fff;
+    border: none;
+    opacity: 0;
+    position: relative;
+    cursor: pointer;
+    animation: textOpacity 1s ease-in forwards 1.5s;
+    &::before {
+      position: absolute;
+      content: "";
+      width: 0%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background: #4C8C9D;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+  }
+
+  i {
+    opacity: 0;
+    font-size: 2.4rem;
+    color: #fff;
+    transform: translateX(1.6rem) translateY(0);
+    animation: down 0.45s ease-in-out infinite alternate-reverse, textOpacity 0.5s ease-in forwards 2.3s;
+    
+  } 
+
+  @keyframes down {
+    100% {
+     transform: translateX(1.6rem) translateY(0.8rem);
+    }
+   }
+}
+
+.tools {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
