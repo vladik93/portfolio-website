@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+html, body {
+  height: 100%;
+}
+
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
@@ -26,20 +30,23 @@ h1 {
   font-size: 6.2rem;
 }
 
+main {
+  height: 100%;
+}
+
 section {
   padding: 0 2.4rem;
-  min-height: 100vh;
 }
 
 .hero {
   font-family: "Oswald", sans-serif;
+  height: 100%;
   font-optical-sizing: auto;
   display: flex;
   background-image: url(./images/profile_2_var1.png);
   background-size: cover;
   background-repeat: no-repeat;
   flex-direction: column;
-  flex: 1;
   justify-content: center;
   letter-spacing: 5px;
   font-weight: 700;
@@ -56,7 +63,7 @@ section {
 .hero .text {
   opacity: 0;
   transform: rotateX(-100deg) translateY(-100%);
-  animation: textMove 0.8s ease-in forwards, textRotate 0.6s ease-in forwards, textOpacity 1s ease-in forwards;
+  animation: textMove 0.8s ease-in forwards, textOpacity 1s ease-in forwards;
 }
 .hero .text.name {
   color: #4C8C9D;
@@ -90,13 +97,13 @@ section {
   }
 }
 .hero .button-wrapper {
-  position: relative;
   padding: 3.2rem 0;
   overflow: hidden;
   display: flex;
   align-items: center;
 }
 .hero button {
+  position: relative;
   background: none;
   color: #fff;
   border: none;
@@ -118,15 +125,17 @@ section {
   width: 100%;
 }
 .hero i {
+  position: absolute;
   opacity: 0;
   font-size: 2.4rem;
   color: #fff;
-  transform: translateX(1.6rem) translateY(0);
+  transform: translateX(1.2rem) translateY(0);
   animation: down 0.45s ease-in-out infinite alternate-reverse, textOpacity 0.5s ease-in forwards 2.3s;
+  top: -50%;
 }
 @keyframes down {
   100% {
-    transform: translateX(1.6rem) translateY(0.8rem);
+    transform: translateX(1.2rem) translateY(0.8rem);
   }
 }
 
