@@ -19,7 +19,7 @@ body {
   font-optical-sizing: auto;
   background: #333;
   color: #fff;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 a {
@@ -105,16 +105,37 @@ header .toggler.open::after {
   width: 100%;
   height: 100%;
   z-index: 60;
-  opacity: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 4.4rem;
   text-align: center;
+  opacity: 0;
+}
+.sidenav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+.sidenav li {
+  overflow: hidden;
+  position: relative;
+  transform: translateY(-100%) translateX(100%);
+  opacity: 0;
+}
+.sidenav a {
+  transition: color 0.3s ease-in, opacity 1s ease-in;
+  transform: translateY(400px);
+}
+.sidenav a:hover {
+  color: #4C8C9D;
 }
 .sidenav.open {
   opacity: 1;
+}
+.sidenav.open li {
+  animation: move 0.3s ease-in forwards, opacityAnimation 0.8s ease-in forwards;
 }
 .sidenav.open li.item-1 {
   animation-delay: 1.5s;
@@ -128,25 +149,6 @@ header .toggler.open::after {
 .sidenav.open li.item-4 {
   animation-delay: 3s;
 }
-.sidenav ul {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-}
-.sidenav li {
-  overflow: hidden;
-  position: relative;
-  transform: translateY(-100%) translateX(100%);
-  opacity: 0;
-  animation: move 0.3s ease-in forwards, opacity 1.5s ease-in forwards;
-}
-.sidenav a {
-  transition: color 0.3s ease-in;
-  transform: translateY(400px);
-}
-.sidenav a:hover {
-  color: #4C8C9D;
-}
 
 .item-wrapper {
   position: relative;
@@ -155,6 +157,7 @@ header .toggler.open::after {
 
 .sidenav-overlay {
   position: absolute;
+  opacity: 0;
   top: 0;
   left: 0;
   background: rgba(51, 51, 51, 0.9);
@@ -162,12 +165,14 @@ header .toggler.open::after {
   width: 30px;
   height: 30px;
   transform: scale(0);
-  transition: transform 1s ease-in 0.5s;
+  transition: transform 1s ease-in, opacity 0.2s ease-in;
   z-index: 50;
 }
 
 .sidenav-overlay.open {
-  transform: scale(100);
+  opacity: 1;
+  transform: scale(50);
+  transition: transform 1s ease-in 0.1s;
 }
 
 @keyframes scale {
@@ -181,7 +186,7 @@ header .toggler.open::after {
     transform: translateY(0%) translateX(0%);
   }
 }
-@keyframes opacity {
+@keyframes opacityAnimation {
   100% {
     opacity: 1;
   }
