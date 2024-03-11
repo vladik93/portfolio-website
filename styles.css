@@ -106,7 +106,6 @@ header .toggler.open::after {
   height: 100%;
   z-index: 60;
   opacity: 0;
-  transition: opacity 0.5s ease-in 0.1s;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -116,9 +115,6 @@ header .toggler.open::after {
 }
 .sidenav.open {
   opacity: 1;
-}
-.sidenav.open li {
-  animation: move 0.3s ease-in forwards alternate, opacity 1.5s ease-in forwards alternate;
 }
 .sidenav.open li.item-1 {
   animation-delay: 1.5s;
@@ -142,6 +138,7 @@ header .toggler.open::after {
   position: relative;
   transform: translateY(-100%) translateX(100%);
   opacity: 0;
+  animation: move 0.3s ease-in forwards, opacity 1.5s ease-in forwards;
 }
 .sidenav a {
   transition: color 0.3s ease-in;
@@ -151,16 +148,6 @@ header .toggler.open::after {
   color: #4C8C9D;
 }
 
-@keyframes move {
-  100% {
-    transform: translateY(0%) translateX(0%);
-  }
-}
-@keyframes opacity {
-  100% {
-    opacity: 1;
-  }
-}
 .item-wrapper {
   position: relative;
   overflow: hidden;
@@ -187,6 +174,16 @@ header .toggler.open::after {
   50% {
     opacity: 0.5;
     transform: translate(-50%, -50%) scale(1.3);
+  }
+}
+@keyframes move {
+  100% {
+    transform: translateY(0%) translateX(0%);
+  }
+}
+@keyframes opacity {
+  100% {
+    opacity: 1;
   }
 }
 .hero {
@@ -232,21 +229,6 @@ header .toggler.open::after {
 .hero .text.text-3 {
   animation-delay: 1s;
 }
-@keyframes textMove {
-  100% {
-    transform: translateY(0%);
-  }
-}
-@keyframes textOpacity {
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes textRotate {
-  100% {
-    transform: rotateX(0deg);
-  }
-}
 .hero .button-wrapper {
   padding: 3.2rem 0;
   overflow: hidden;
@@ -290,6 +272,21 @@ header .toggler.open::after {
   }
 }
 
+@keyframes textMove {
+  100% {
+    transform: translateY(0%);
+  }
+}
+@keyframes textOpacity {
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes textRotate {
+  100% {
+    transform: rotateX(0deg);
+  }
+}
 .tools {
   display: flex;
   align-items: center;
