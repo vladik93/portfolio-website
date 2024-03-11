@@ -123,18 +123,17 @@ header {
  height: 100%;
  z-index: 60;
  opacity: 0;
- transition: opacity 0.5s ease-in 0.1s;
+//  transition: opacity 0.5s ease-in 0.1s;
  display: flex;
  flex-direction: column;
  align-items: center;
  justify-content: center;
  font-size: 4.4rem;
  text-align: center;
-
+ 
  &.open {
   opacity: 1;
   li {
-    animation: move 0.3s ease-in forwards alternate, opacity 1.5s ease-in forwards alternate;
 
     &.item-1 {
       animation-delay: 1.5s;
@@ -159,6 +158,7 @@ header {
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+  
  }
 
  li {
@@ -166,6 +166,8 @@ header {
   position: relative;
   transform: translateY(-100%) translateX(100%);
   opacity: 0;
+  animation: move 0.3s ease-in forwards, opacity 1.5s ease-in forwards;
+
 
  }
 
@@ -181,17 +183,6 @@ header {
  }
 }
 
-@keyframes move {
-  100% {
-    transform: translateY(0%) translateX(0%);
-  }
-}
-
-@keyframes opacity {
-  100% {
-    opacity: 1;
-  }
-}
 
 .item-wrapper {
   // background: red;
@@ -229,6 +220,19 @@ header {
     transform: translate(-50%, -50%) scale(1.3);
   }
 }
+
+@keyframes move {
+  100% {
+    transform: translateY(0%) translateX(0%);
+  }
+}
+
+@keyframes opacity {
+  100% {
+    opacity: 1;
+  }
+}
+
 
 
 // HERO
@@ -290,23 +294,7 @@ header {
   }
 
 
-  @keyframes textMove {
-    100% {
-      transform: translateY(0%);
-    }
-  }
-
-  @keyframes textOpacity {
-    100% {
-      opacity: 1;
-    }
-  }
-
-  @keyframes textRotate {
-    100% {
-      transform: rotateX(0deg);
-    }
-  }
+  
 
   .button-wrapper {
     padding: 3.2rem 0;
@@ -356,6 +344,24 @@ header {
      transform: translateX(1.2rem) translateY(0.8rem);
     }
    }
+}
+
+@keyframes textMove {
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes textOpacity {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes textRotate {
+  100% {
+    transform: rotateX(0deg);
+  }
 }
 
 .tools {
