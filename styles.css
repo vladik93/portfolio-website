@@ -61,6 +61,8 @@ header .toggler {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease-in;
 }
 header .toggler span {
   width: 30px;
@@ -68,6 +70,7 @@ header .toggler span {
   background: #fff;
   display: block;
   border-radius: 3px;
+  transition: transform 0.3s ease-in 0.5s, opacity 0.2s ease-in;
 }
 header .toggler::before {
   content: "";
@@ -91,6 +94,18 @@ header .toggler::after {
   transform: translate(-50%, -50%) scale(0);
   border-radius: 100%;
 }
+header .toggler.open {
+  transform: rotate(90deg);
+}
+header .toggler.open span:nth-child(1) {
+  transform: rotate(-90deg) translateX(-50%);
+}
+header .toggler.open span:nth-child(2) {
+  opacity: 0;
+}
+header .toggler.open span:nth-child(3) {
+  transform: translateY(-12px);
+}
 header .toggler.open::after {
   transform: translate(-50%, -50%) scale(1);
   border: 3px solid #4C8C9D;
@@ -98,7 +113,7 @@ header .toggler.open::after {
 }
 
 .sidenav {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   padding-top: 70px;
@@ -121,7 +136,7 @@ header .toggler.open::after {
 .sidenav li {
   overflow: hidden;
   position: relative;
-  transform: translateY(-100%) translateX(100%);
+  transform: translateY(-100%) translateX(-100%);
   opacity: 0;
 }
 .sidenav a {
@@ -156,7 +171,7 @@ header .toggler.open::after {
 }
 
 .sidenav-overlay {
-  position: absolute;
+  position: fixed;
   opacity: 0;
   top: 0;
   left: 0;

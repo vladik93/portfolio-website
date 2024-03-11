@@ -70,13 +70,15 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease-in;
     span {
       width: 30px;
       height: 3px;
       background: #fff;
       display: block;
       border-radius: 3px;
-      
+      transition: transform 0.3s ease-in 0.5s, opacity 0.2s ease-in;
     }
 
     &::before {
@@ -104,6 +106,23 @@ header {
       border-radius: 100%;
     }
 
+    &.open {
+      transform: rotate(90deg);
+        
+
+      span:nth-child(1) {
+        transform: rotate(-90deg) translateX(-50%);
+      }
+
+      span:nth-child(2) {
+        opacity: 0;
+      }
+
+      span:nth-child(3) {
+        transform: translateY(-12px)
+      }
+    }
+
     &.open::after {
       transform: translate(-50%, -50%) scale(1);
       border: 3px solid #4C8C9D;
@@ -115,7 +134,7 @@ header {
 }
 
 .sidenav {
- position: absolute;
+ position: fixed;
  top: 0;
  left: 0;
  padding-top: 70px;
@@ -143,7 +162,7 @@ header {
   li {
     overflow: hidden;
     position: relative;
-    transform: translateY(-100%) translateX(100%);
+    transform: translateY(-100%) translateX(-100%);
     opacity: 0;
 
     
@@ -195,7 +214,7 @@ header {
 
 
 .sidenav-overlay {
-  position: absolute;
+  position: fixed;
   opacity: 0;
   top: 0;
   left: 0;
