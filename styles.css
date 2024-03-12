@@ -57,64 +57,43 @@ header {
   z-index: 100;
 }
 header .toggler {
-  position: relative;
-  cursor: pointer;
   height: 50px;
+  width: 50px;
   background: none;
   border: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  transform: rotate(0deg);
+  position: relative;
+  cursor: pointer;
   transition: transform 0.3s ease-in;
 }
 header .toggler span {
-  width: 30px;
-  height: 3px;
-  background: #fff;
-  display: block;
-  border-radius: 3px;
-  transition: transform 0.3s ease-in 0.5s, opacity 0.2s ease-in;
-}
-header .toggler::before {
-  content: "";
   position: absolute;
-  height: 55px;
-  width: 55px;
+  border-radius: 1.6px;
+  background: #fff;
+  width: 80%;
+  height: 3px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 100%;
-  background: rgba(0, 0, 0, 0.2);
+  display: block;
+  transition: transform 0.3s ease-in 0.5s, opacity 0.3s ease-in 0.5s;
 }
-header .toggler::after {
-  content: "";
-  position: absolute;
-  height: 55px;
-  width: 55px;
-  left: 50%;
-  top: 50%;
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(0);
-  border-radius: 100%;
+header .toggler span:nth-child(1) {
+  transform: translate(-50%, calc(-50% - 0.8rem));
+}
+header .toggler span:nth-child(3) {
+  transform: translate(-50%, calc(-50% + 0.8rem));
 }
 header .toggler.open {
   transform: rotate(90deg);
 }
 header .toggler.open span:nth-child(1) {
-  transform: rotate(-90deg) translateX(-50%);
+  transform: translate(-50%, 0%) rotate(45deg);
 }
 header .toggler.open span:nth-child(2) {
   opacity: 0;
-  transition: opacity 0.3s ease-in 0.5s;
 }
 header .toggler.open span:nth-child(3) {
-  transform: translateY(-12px);
-}
-header .toggler.open::after {
-  transform: translate(-50%, -50%) scale(1);
-  border: 3px solid #4C8C9D;
-  animation: scale 0.7s ease-in forwards alternate;
+  transform: translate(-50%, 0) rotate(-45deg);
 }
 
 .sidenav {

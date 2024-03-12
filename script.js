@@ -12,6 +12,6 @@ togglerEl.addEventListener('click', (e) => {
   togglerEl.classList.toggle('open');
   sidenavOverlayEl.classList.toggle('open');
   sidenavEl.classList.toggle('open');
-  // document.body.style.overflow = "hidden";
+  document.body.style.overflow = "hidden";
 })
 

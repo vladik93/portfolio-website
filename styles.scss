@@ -65,76 +65,74 @@ header {
   align-items: center;
   z-index: 100;
   .toggler {
-    position: relative;
-    cursor: pointer;
-    // width: 80px;
     height: 50px;
+    width: 50px;  
     background: none;
     border: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    transform: rotate(0deg);
+    position: relative;
+    cursor: pointer;
     transition: transform 0.3s ease-in;
-    span {
-      width: 30px;
-      height: 3px;
-      background: #fff;
-      display: block;
-      border-radius: 3px;
-      transition: transform 0.3s ease-in 0.5s, opacity 0.2s ease-in;
-    }
-
-    &::before {
-      content: "";
-      position: absolute;
-      height: 55px;
-      width: 55px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      border-radius: 100%;
     
-      background: rgb(0, 0, 0, 0.2);
-    }
+    
 
-    &::after {
-      content: "";
-      position: absolute;
-      height: 55px;
-      width: 55px;
-      left: 50%;
-      top: 50%;
-      opacity: 0;
-      transform: translate(-50%, -50%) scale(0);
-      border-radius: 100%;
+    span {
+     position: absolute;
+    //  padding: 1.6rem;
+     border-radius: 1.6px;
+    
+     background: #fff;
+     width: 80%;
+     height: 3px;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     display: block;
+     transition: transform 0.3s ease-in 0.5s, opacity 0.3s ease-in 0.5s;
+
+     &:nth-child(1) {
+      transform: translate(-50%, calc(-50% - 0.8rem));
+    
+      
+     }
+
+     &:nth-child(2) {
+      
+        
+     }
+
+     &:nth-child(3) {
+        transform: translate(-50%, calc(-50% + 0.8rem)); 
+        
+     
+
+     }
     }
 
     &.open {
       transform: rotate(90deg);
+     
+      span {
+        &:nth-child(1) {
+          transform: translate(-50%, 0%) rotate(45deg);
+        }
         
-      
+        &:nth-child(2) {
+          opacity: 0;
+         
+        }
 
-      span:nth-child(1) {
-        transform: rotate(-90deg) translateX(-50%);
+        &:nth-child(3) {
+          transform: translate(-50%, 0) rotate(-45deg)
+        }
       }
-
-      span:nth-child(2) {
-        opacity: 0;
-        transition: opacity 0.3s ease-in 0.5s;
-      }
-
-      span:nth-child(3) {
-        transform: translateY(-12px)
-      }
+    
     }
 
-    &.open::after {
-      transform: translate(-50%, -50%) scale(1);
-      border: 3px solid #4C8C9D;
-      
-      animation: scale 0.7s ease-in forwards alternate;
-    }
+
+    
+    
+
+  
     
   }
 }
