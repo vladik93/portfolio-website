@@ -424,7 +424,7 @@ header {
 
   .skill {
     min-height: 300px;
-    
+    opacity: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -432,18 +432,37 @@ header {
     flex-direction: column;
     gap: 1.6rem;
     color: $color-main;
+    transition: opacity 0.3s ease-in;
+
+    &.show {
+      opacity: 1;
+    }
 
     &.skill:nth-child(even) {
       background: $color-main;
       
 
       .icon-wrapper {
+        &::before {
+          position: absolute;
+          content: "";
+          width: 50px;
+          height: 150%;
+          background: linear-gradient(#9E4C66, #333333);
+    
+          // transform: translateY(0%);
+          animation: rotate 2s linear infinite;
+          filter: blur(5px);
+         
+        }
+        
         &::after {
           content: "";
           position: absolute;
           background: #4C8C9D;
-          inset: 3px;
-          border-radius: 100%; 
+         
+
+  
           
         }
       }
@@ -451,6 +470,8 @@ header {
       h3 {
         color: #333;
       }
+
+      
     }
 
   }
@@ -472,10 +493,11 @@ header {
       content: "";
       width: 50px;
       height: 150%;
-      background: #fff;
+      background: linear-gradient(#9E4C66, #4C8C9D);
 
       // transform: translateY(0%);
       animation: rotate 2s linear infinite;
+      filter: blur(5px);
      
     }
 
@@ -483,7 +505,12 @@ header {
       content: "";
       position: absolute;
       background: #333;
-      inset: 3px;
+      inset: 5px;
+      // top:3px;
+      // left:3px;
+      // right:3px;
+      // bottom:3px;
+
       border-radius: 100%; 
       
     }

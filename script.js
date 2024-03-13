@@ -15,3 +15,19 @@ togglerEl.addEventListener('click', (e) => {
   // document.body.style.overflow = "hidden";
 })
 
+// SKILLS ANIMATION
+const skillEls = document.querySelectorAll('.skill');
+
+let observer = new IntersectionObserver((entries => {
+  entries.forEach((entry) => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add('show');
+    } 
+  })
+}), {
+  threshold: 0.8
+});
+
+skillEls.forEach(skillEl => {
+  observer.observe(skillEl);
+})

@@ -320,6 +320,7 @@ header .toggler.open span:nth-child(3) {
 }
 .skills .skill {
   min-height: 300px;
+  opacity: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -327,16 +328,27 @@ header .toggler.open span:nth-child(3) {
   flex-direction: column;
   gap: 1.6rem;
   color: #4C8C9D;
+  transition: opacity 0.3s ease-in;
+}
+.skills .skill.show {
+  opacity: 1;
 }
 .skills .skill.skill:nth-child(even) {
   background: #4C8C9D;
+}
+.skills .skill.skill:nth-child(even) .icon-wrapper::before {
+  position: absolute;
+  content: "";
+  width: 50px;
+  height: 150%;
+  background: linear-gradient(#9E4C66, #333333);
+  animation: rotate 2s linear infinite;
+  filter: blur(5px);
 }
 .skills .skill.skill:nth-child(even) .icon-wrapper::after {
   content: "";
   position: absolute;
   background: #4C8C9D;
-  inset: 3px;
-  border-radius: 100%;
 }
 .skills .skill.skill:nth-child(even) h3 {
   color: #333;
@@ -357,14 +369,15 @@ header .toggler.open span:nth-child(3) {
   content: "";
   width: 50px;
   height: 150%;
-  background: #fff;
+  background: linear-gradient(#9E4C66, #4C8C9D);
   animation: rotate 2s linear infinite;
+  filter: blur(5px);
 }
 .skills .icon-wrapper::after {
   content: "";
   position: absolute;
   background: #333;
-  inset: 3px;
+  inset: 5px;
   border-radius: 100%;
 }
 .skills svg {
