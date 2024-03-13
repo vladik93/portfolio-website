@@ -35,6 +35,14 @@ h1 {
   font-size: 6.2rem;
 }
 
+h2 {
+  font-size: 4.4rem;
+}
+
+h3 {
+  font-size: 3.6rem;
+}
+
 ul {
   list-style: none;
 }
@@ -44,7 +52,7 @@ main {
 }
 
 section {
-  padding: 0 2.4rem;
+  padding: 4rem 2.4rem;
 }
 
 header {
@@ -111,6 +119,7 @@ header .toggler.open span:nth-child(3) {
   font-size: 4.4rem;
   text-align: center;
   opacity: 0;
+  visibility: hidden;
 }
 .sidenav ul {
   display: flex;
@@ -132,6 +141,7 @@ header .toggler.open span:nth-child(3) {
 }
 .sidenav.open {
   opacity: 1;
+  visibility: visible;
 }
 .sidenav.open li {
   animation: move 0.3s ease-in forwards, opacityAnimation 0.8s ease-in forwards;
@@ -157,6 +167,7 @@ header .toggler.open span:nth-child(3) {
 .sidenav-overlay {
   position: fixed;
   opacity: 0;
+  visibility: hidden;
   top: 0;
   left: 0;
   background: rgba(51, 51, 51, 0.9);
@@ -164,11 +175,12 @@ header .toggler.open span:nth-child(3) {
   width: 30px;
   height: 30px;
   transform: scale(0);
-  transition: transform 1s ease-in, opacity 0.2s ease-in;
+  transition: transform 1s ease-in, opacity 0.2s ease-in, visibility 0.2s ease-in;
   z-index: 50;
 }
 
 .sidenav-overlay.open {
+  visibility: visible;
   opacity: 1;
   transform: scale(100);
   transition: transform 1s ease-in 0.1s;
@@ -234,7 +246,7 @@ header .toggler.open span:nth-child(3) {
   animation-delay: 1s;
 }
 .hero .button-wrapper {
-  padding: 3.2rem 0;
+  height: 50px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -291,11 +303,83 @@ header .toggler.open span:nth-child(3) {
     transform: rotateX(0deg);
   }
 }
-.tools {
+.skills {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  padding: 4rem 0rem;
+}
+.skills h2 {
+  color: #4C8C9D;
+}
+.skills .skill-wrapper {
+  width: 100%;
+  padding: 6.2rem 0;
+}
+.skills .skill {
+  min-height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  color: #4C8C9D;
+}
+.skills .skill.skill:nth-child(even) {
+  background: #4C8C9D;
+}
+.skills .skill.skill:nth-child(even) .icon-wrapper::after {
+  content: "";
+  position: absolute;
+  background: #4C8C9D;
+  inset: 3px;
+  border-radius: 100%;
+}
+.skills .skill.skill:nth-child(even) h3 {
+  color: #333;
+}
+.skills .icon-wrapper {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: transparent;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.skills .icon-wrapper::before {
+  position: absolute;
+  content: "";
+  width: 50px;
+  height: 150%;
+  background: #fff;
+  animation: rotate 2s linear infinite;
+}
+.skills .icon-wrapper::after {
+  content: "";
+  position: absolute;
+  background: #333;
+  inset: 3px;
+  border-radius: 100%;
+}
+.skills svg {
+  z-index: 5;
+  fill: #fff;
+  height: 65px;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

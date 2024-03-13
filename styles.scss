@@ -1,3 +1,5 @@
+@import "./variables";
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -39,6 +41,14 @@ h1 {
   font-size: 6.2rem;
 }
 
+h2 {
+  font-size: 4.4rem;
+}
+
+h3 {
+  font-size: 3.6rem;
+}
+
 ul {
   list-style: none;
 }
@@ -48,7 +58,7 @@ main {
 }
 
 section {
-  padding: 0 2.4rem;
+  padding: 4rem  2.4rem;
 
 }
 
@@ -153,6 +163,7 @@ header {
  font-size: 4.4rem;
  text-align: center;
  opacity: 0;
+ visibility: hidden;
 
 
   ul {
@@ -179,13 +190,14 @@ header {
 
 
     &:hover {
-      color: #4C8C9D;
+      color: $color-main;
     }
  }
 
 
   &.open {
     opacity: 1;
+    visibility: visible;
     li {
       animation: move 0.3s ease-in forwards, opacityAnimation 0.8s ease-in forwards;
 
@@ -220,6 +232,7 @@ header {
 .sidenav-overlay {
   position: fixed;
   opacity: 0;
+  visibility: hidden;
   top: 0;
   left: 0;
   background: rgba(51, 51, 51, 0.9);
@@ -227,13 +240,14 @@ header {
   width: 30px;
   height: 30px;
   transform: scale(0);
-  transition: transform 1s ease-in, opacity 0.2s ease-in;
+  transition: transform 1s ease-in, opacity 0.2s ease-in, visibility 0.2s ease-in;
   z-index: 50;
 
 }
 
 
 .sidenav-overlay.open {
+  visibility: visible;
   opacity: 1;
   transform: scale(100);
   transition: transform 1s ease-in 0.1s;
@@ -299,7 +313,7 @@ header {
     textOpacity 1s ease-in forwards;
 
     &.name {
-      color: #4C8C9D;
+      color: $color-main;
     }
 
     &.role {
@@ -324,7 +338,7 @@ header {
   
 
   .button-wrapper {
-    padding: 3.2rem 0;
+    height: 50px;
 
     overflow: hidden;
     display: flex;
@@ -391,11 +405,107 @@ header {
   }
 }
 
-.tools {
+.skills {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 100vh;
+  height: auto;
+  width: 100%;
+  padding: 4rem  0rem;
+
+  h2 {
+    color: $color-main;
+  }
+
+  .skill-wrapper {
+    width: 100%;
+    padding: 6.2rem 0;
+  }
+
+  .skill {
+    min-height: 300px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    color: $color-main;
+
+    &.skill:nth-child(even) {
+      background: $color-main;
+      
+
+      .icon-wrapper {
+        &::after {
+          content: "";
+          position: absolute;
+          background: #4C8C9D;
+          inset: 3px;
+          border-radius: 100%; 
+          
+        }
+      }
+      
+      h3 {
+        color: #333;
+      }
+    }
+
+  }
+
+  .icon-wrapper {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 50px;
+      height: 150%;
+      background: #fff;
+
+      // transform: translateY(0%);
+      animation: rotate 2s linear infinite;
+     
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      background: #333;
+      inset: 3px;
+      border-radius: 100%; 
+      
+    }
+
+  }
+
+  svg {
+    z-index: 5;
+    fill: #fff;
+    height: 65px;
+    // object-fit: cover;
+    // transform: scale(0.8);
+  }
 }
 
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
