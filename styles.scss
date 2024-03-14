@@ -424,18 +424,39 @@ header {
 
   .skill {
     min-height: 300px;
-    opacity: 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
     gap: 1.6rem;
     color: $color-main;
-    transition: opacity 0.3s ease-in;
+   
+
+    .content-wrapper {
+      position: relative;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: center;
+      // align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in;
+      
+    }
 
     &.show {
-      opacity: 1;
+      .content-wrapper {
+        opacity: 1;
+      }
+
+      .icon-wrapper {
+        transform: translateY(0%);
+      }
+
+      .title {
+        width: 100%;
+        opacity: 1;
+        ;
+        transition: width 0.4s ease-in-out 0.3s, opacity 0.5s ease-in 0.4s;
+      }
+      
     }
 
     &.skill:nth-child(even) {
@@ -444,15 +465,7 @@ header {
 
       .icon-wrapper {
         &::before {
-          position: absolute;
-          content: "";
-          width: 50px;
-          height: 150%;
           background: linear-gradient(#9E4C66, #333333);
-    
-          // transform: translateY(0%);
-          animation: rotate 2s linear infinite;
-          filter: blur(5px);
          
         }
         
@@ -460,9 +473,6 @@ header {
           content: "";
           position: absolute;
           background: #4C8C9D;
-         
-
-  
           
         }
       }
@@ -476,6 +486,12 @@ header {
 
   }
 
+  .outer-icon-wrapper {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+
   .icon-wrapper {
     position: relative;
     width: 100px;
@@ -486,6 +502,8 @@ header {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in;
     
 
     &::before {
@@ -506,15 +524,20 @@ header {
       position: absolute;
       background: #333;
       inset: 5px;
-      // top:3px;
-      // left:3px;
-      // right:3px;
-      // bottom:3px;
+    
 
       border-radius: 100%; 
       
     }
 
+  }
+
+
+  .title {
+    text-align: center;
+    width: 0%;
+    opacity: 0;
+    // width: 100%;
   }
 
   svg {

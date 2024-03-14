@@ -320,30 +320,35 @@ header .toggler.open span:nth-child(3) {
 }
 .skills .skill {
   min-height: 300px;
-  opacity: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
   gap: 1.6rem;
   color: #4C8C9D;
+}
+.skills .skill .content-wrapper {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
   transition: opacity 0.3s ease-in;
 }
-.skills .skill.show {
+.skills .skill.show .content-wrapper {
   opacity: 1;
+}
+.skills .skill.show .icon-wrapper {
+  transform: translateY(0%);
+}
+.skills .skill.show .title {
+  width: 100%;
+  opacity: 1;
+  transition: width 0.4s ease-in-out 0.3s, opacity 0.5s ease-in 0.4s;
 }
 .skills .skill.skill:nth-child(even) {
   background: #4C8C9D;
 }
 .skills .skill.skill:nth-child(even) .icon-wrapper::before {
-  position: absolute;
-  content: "";
-  width: 50px;
-  height: 150%;
   background: linear-gradient(#9E4C66, #333333);
-  animation: rotate 2s linear infinite;
-  filter: blur(5px);
 }
 .skills .skill.skill:nth-child(even) .icon-wrapper::after {
   content: "";
@@ -352,6 +357,11 @@ header .toggler.open span:nth-child(3) {
 }
 .skills .skill.skill:nth-child(even) h3 {
   color: #333;
+}
+.skills .outer-icon-wrapper {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 .skills .icon-wrapper {
   position: relative;
@@ -363,6 +373,8 @@ header .toggler.open span:nth-child(3) {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in;
 }
 .skills .icon-wrapper::before {
   position: absolute;
@@ -379,6 +391,11 @@ header .toggler.open span:nth-child(3) {
   background: #333;
   inset: 5px;
   border-radius: 100%;
+}
+.skills .title {
+  text-align: center;
+  width: 0%;
+  opacity: 0;
 }
 .skills svg {
   z-index: 5;

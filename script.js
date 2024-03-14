@@ -25,7 +25,7 @@ let observer = new IntersectionObserver((entries => {
     } 
   })
 }), {
-  threshold: 0.8
+  threshold: 0.9
 });
 
 skillEls.forEach(skillEl => {
