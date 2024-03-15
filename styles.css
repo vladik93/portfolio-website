@@ -43,6 +43,10 @@ h3 {
   font-size: 3.6rem;
 }
 
+h4 {
+  font-size: 2.4rem;
+}
+
 ul {
   list-style: none;
 }
@@ -315,14 +319,24 @@ header .toggler.open span:nth-child(3) {
   color: #4C8C9D;
 }
 .skills .skill-wrapper {
+  gap: 0.8rem;
   width: 100%;
-  padding: 6.2rem 0;
+  padding: 6.2rem 0.8rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
 }
 .skills .skill {
-  min-height: 300px;
+  min-height: 250px;
   display: flex;
   gap: 1.6rem;
-  color: #4C8C9D;
+  border-radius: 20px;
+  border: 3px solid #4C8C9D;
+}
+.skills .skill:last-child {
+  grid-column: span 2;
+  min-height: 200px;
 }
 .skills .skill .content-wrapper {
   position: relative;
@@ -344,16 +358,12 @@ header .toggler.open span:nth-child(3) {
   opacity: 1;
   transition: width 0.4s ease-in-out 0.3s, opacity 0.5s ease-in 0.4s;
 }
-.skills .skill.skill:nth-child(even) {
-  background: #4C8C9D;
-}
 .skills .skill.skill:nth-child(even) .icon-wrapper::before {
   background: linear-gradient(#9E4C66, #333333);
 }
 .skills .skill.skill:nth-child(even) .icon-wrapper::after {
   content: "";
   position: absolute;
-  background: #4C8C9D;
 }
 .skills .skill.skill:nth-child(even) h3 {
   color: #333;
