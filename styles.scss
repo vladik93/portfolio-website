@@ -113,9 +113,6 @@ header {
 
      &:nth-child(3) {
         transform: translate(-50%, calc(-50% + 0.8rem)); 
-        
-     
-
      }
     }
 
@@ -406,6 +403,15 @@ header {
   }
 }
 
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .skills {
   display: flex;
   flex-direction: column;
@@ -421,7 +427,8 @@ header {
   .skill-wrapper {
     gap: 2.4rem 0.8rem;
     width: 100%;
-    padding: 6.2rem 0.8rem;
+    padding: 0rem 0.8rem;
+    padding-top: 6.2rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
@@ -435,7 +442,7 @@ header {
 
     .skill {
       min-height: 200px;
-      transition: transform 1s ease-in 1s, opacity 0.5s ease-in 1s, box-shadow 0.3s ease-in;
+      transition: transform 1s ease-in 0.5s, opacity 0.5s ease-in 0.5s, box-shadow 0.3s ease-in;
     }
   
   }
@@ -585,13 +592,10 @@ header {
   }
 }
 
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+.projects {
+  background-color:#4C8C9D;
 }
+
+
+
 
