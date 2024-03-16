@@ -109,10 +109,7 @@ header {
       
      }
 
-     &:nth-child(2) {
-      
-        
-     }
+  
 
      &:nth-child(3) {
         transform: translate(-50%, calc(-50% + 0.8rem)); 
@@ -422,7 +419,7 @@ header {
   }
 
   .skill-wrapper {
-    gap: 0.8rem;
+    gap: 2.4rem 0.8rem;
     width: 100%;
     padding: 6.2rem 0.8rem;
     display: grid;
@@ -432,17 +429,47 @@ header {
 
   }
 
+  .skill-transition-wrapper:last-child {
+
+    grid-column: span 2;
+
+    .skill {
+      min-height: 200px;
+      transition: transform 1s ease-in 1s, opacity 0.5s ease-in 1s, box-shadow 0.3s ease-in;
+    }
+  
+  }
+  
+
+
   .skill {
-    min-height: 250px;
+    min-height: 200px;
     display: flex;
     gap: 1.6rem;
     // color: $color-main;
     border-radius: 20px;
-    border: 3px solid #4C8C9D;
+    border: 3px solid rgb(76, 140, 157);
+    // background: rgba(255,255,255, 0.3);
+    cursor: pointer;
+   
+    transform: translate(-200%, -100%);
+    opacity: 0;
+    transition: transform 0.5s ease-in, opacity 0.5s ease-in, box-shadow 0.3s ease-in;
+  
+    &:hover {
+       box-shadow: -3px 5px 7px darken(rgba(76, 140, 157, 0.8), 10%);
 
-    &:last-child {
-     grid-column: span 2; 
-     min-height: 200px;
+       .content-wrapper {
+        transform: scale(1);
+       }
+    }
+
+    &.css {
+      transition: transform 0.5s ease-in 0.5s, opacity 0.5s ease-in 0.5s, box-shadow 0.3s ease-in;
+    }
+
+    &.javascript {
+      transition: transform 0.5s ease-in 0.5s, opacity 0.5s ease-in 0.5s, box-shadow 0.3s ease-in;
     }
 
     .content-wrapper {
@@ -452,12 +479,15 @@ header {
       flex-direction: column;
       justify-content: center;
       // align-items: center;
+      transform: scale(0.95);
       opacity: 0;
-      transition: opacity 0.3s ease-in;
+      transition: opacity 0.3s ease-in, transform 0.3s ease-in;
       
     }
 
     &.show {
+      transform: translate(0%, 0%);
+      opacity: 1;
       .content-wrapper {
         opacity: 1;
       }

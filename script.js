@@ -16,18 +16,18 @@ togglerEl.addEventListener('click', (e) => {
 })
 
 // SKILLS ANIMATION
-const skillEls = document.querySelectorAll('.skill');
+const skillTransitionEls = document.querySelectorAll('.skill-transition-wrapper');
 
 let observer = new IntersectionObserver((entries => {
   entries.forEach((entry) => {
     if(entry.isIntersecting) {
-      entry.target.classList.add('show');
+      entry.target.querySelector('.skill').classList.add('show');
     } 
   })
 }), {
-  threshold: 0.9
+  threshold: 0.8
 });
 
-skillEls.forEach(skillEl => {
-  observer.observe(skillEl);
+skillTransitionEls.forEach(skillTransitEl => {
+  observer.observe(skillTransitEl);
 })
