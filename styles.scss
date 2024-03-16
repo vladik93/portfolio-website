@@ -38,7 +38,7 @@ a {
 
 
 h1 {
-  font-size: 6.2rem;
+  font-size: 5.2rem;
 }
 
 h2 {
@@ -277,6 +277,7 @@ header {
 // HERO
 
 .hero {
+  position: relative;
   font-family: "Oswald", sans-serif;
   height: 100%;
   font-optical-sizing: auto;
@@ -285,11 +286,21 @@ header {
   background-size:cover;
   background-repeat: no-repeat;
   flex-direction: column;
-  
   justify-content: center;
   letter-spacing: 5px;
   font-weight: 700;
 
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.35);
+    display: block;
+    z-index: 0;
+  }
 
 
   .text-wrapper {
@@ -316,7 +327,7 @@ header {
 
     &.role {
       font-weight: 300;
-      font-size: 5.2rem;
+      // font-size: 5.2rem;
     }
 
     &.text-1 {
@@ -329,6 +340,10 @@ header {
 
     &.text-3 {
       animation-delay: 1s;
+    }
+
+    &.text-4 {
+      animation-delay: 1.5s;
     }
   }
 
@@ -479,6 +494,10 @@ header {
       transition: transform 0.5s ease-in 0.5s, opacity 0.5s ease-in 0.5s, box-shadow 0.3s ease-in;
     }
 
+    &.reactjs {
+      transition: transform 0.5s ease-in 1s, opacity 0.5s ease-in 0.5s, box-shadow 0.3s ease-in;
+    }
+
     .content-wrapper {
       position: relative;
       display: flex;
@@ -593,7 +612,9 @@ header {
 }
 
 .projects {
+  min-height: 100vh;
   background-color:#4C8C9D;
+  color: #333;
 }
 
 
