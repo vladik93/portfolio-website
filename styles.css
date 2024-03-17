@@ -55,6 +55,11 @@ img {
   width: 100%;
 }
 
+video {
+  width: 100%;
+  object-fit: cover;
+}
+
 main {
   height: 100%;
 }
@@ -474,6 +479,7 @@ header .toggler.open span:nth-child(3) {
   align-items: center;
   display: flex;
   padding: 4rem 0;
+  position: relative;
 }
 .projects .project-wrapper {
   padding: 0rem 0.8rem;
@@ -481,6 +487,28 @@ header .toggler.open span:nth-child(3) {
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
+  position: relative;
+}
+.projects .animated-text-wrapper {
+  position: absolute;
+  top: 0px;
+}
+.projects .animated-text {
+  top: 0;
+  color: #fff;
+  font-weight: 700;
+}
+.projects .animated-text svg {
+  position: absolute;
+  animation: arrowMove 0.3s ease-in infinite alternate;
+}
+@keyframes arrowMove {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  100% {
+    transform: translateY(10px) translateX(5px);
+  }
 }
 .projects .project {
   text-align: center;
@@ -490,10 +518,17 @@ header .toggler.open span:nth-child(3) {
   border-radius: 20px;
   object-fit: cover;
 }
+.projects .project video {
+  border-radius: 20px;
+  filter: grayscale(1);
+}
 .projects .project .image-wrapper {
   transform: rotateX(-90deg);
-  transition: transform 0.5s ease-in;
-  animation: imageRotate 0.5s ease-in forwards 1.5s, imageScale 1.5s ease-in 1s forwards;
+  opacity: 0;
+  animation: imageOpacity 1s ease-in forwards 0.5s, imageRotate 0.5s ease-in forwards 0.5s;
+}
+.projects .project.show .image-wrapper {
+  opacity: 1;
 }
 
 @keyframes imageRotate {
@@ -510,6 +545,14 @@ header .toggler.open span:nth-child(3) {
   }
   100% {
     transform: scale(1);
+  }
+}
+@keyframes imageOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
