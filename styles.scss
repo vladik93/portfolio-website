@@ -38,7 +38,7 @@ a {
 
 
 h1 {
-  font-size: 5.2rem;
+  font-size: 7.2rem;
 }
 
 h2 {
@@ -63,6 +63,7 @@ img {
 
 video {
   width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -72,7 +73,15 @@ main {
 
 section {
   padding: 4rem  2.4rem;
+}
 
+button {
+  padding: 0.8rem 1.6rem;
+  border: 3px solid lighten(#4C8C9D, 20%);
+  background: none;
+  border-radius: 5px; 
+  color: lighten(#4C8C9D, 20%);
+  font-weight: 700;
 }
 
 
@@ -292,6 +301,7 @@ header {
   font-optical-sizing: auto;
   display: flex;
   background-image: url(./images/profile_2_var1.png);
+  // filter:hue-rotate();
   background-size:cover;
   background-repeat: no-repeat;
   flex-direction: column;
@@ -306,7 +316,7 @@ header {
     right: 0;
     bottom: 0;
     top: 0;
-    background: rgba(0, 0, 0, 0.35);
+    // background: lighten(rgba(76, 140, 157, 0.5), 10%);
     display: block;
     z-index: 0;
   }
@@ -331,7 +341,13 @@ header {
     textOpacity 1s ease-in forwards;
 
     &.name {
-      color: $color-main;
+      // color: rgba(76, 140, 157, 0.7);
+      // text-shadow: 0px 3px 0px #4C8C9D;
+      background-color:#4C8C9D;
+      background-image: linear-gradient(45deg, rgba(158, 76, 102, 0.9), darken($color-main, 30%));
+      background-size: 100%;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     &.role {
@@ -637,6 +653,8 @@ header {
     flex-direction: column;
     gap: 2.4rem;
     position: relative;
+    
+    width: 100%;
   }
 
   .animated-text-wrapper {
@@ -659,35 +677,61 @@ header {
   
   }
 
-  @keyframes arrowMove {
-    0% {
-      transform: translateY(0px) translateX(0px);
-    }
-    100% {
-      transform: translateY(10px) translateX(5px);
-    }
-  }
+
 
   .project {
     text-align: center;
     perspective: 1000px;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
 
-    img {
-      border-radius: 20px;
-      object-fit: cover;
+    .video-wrapper {
+      flex: 1;
+      transform: rotateX(-90deg);
+      width: 100%;
+      opacity: 0;
+      animation: imageOpacity 1s ease-in forwards 0.5s, imageRotate 0.5s ease-in forwards 0.5s;
+      // border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    
+
+      .project-description {
+        position: absolute;
+        text-align:start;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        width: 100%;
+        height: 100%;
+        z-index: 50;
+        opacity: 0;
+        transition: opacity 0.5s ease-in, background-color 1s ease-in;
+        
+
+        .button-wrapper {
+          padding-top: 2.4rem;
+        }
+
+      }
     }
+
+    
 
     video {
-      border-radius: 20px;
-      filter:grayscale(1);
-    }
-
-    .image-wrapper {
-      transform: rotateX(-90deg);
-      // transition: transform 0.5s ease-in;
-      opacity: 0;
-      // animation: imageRotate 0.5s ease-in forwards 1.5s, imageOpacity 0.5s ease-in forwards 1s;
-      animation: imageOpacity 1s ease-in forwards 0.5s, imageRotate 0.5s ease-in forwards 0.5s;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      flex: 1;
+      transform: scale(1);
+      border-radius: 10px;
+      transition: transform 0.3s ease-in;
     }
 
     &.show {
@@ -695,6 +739,34 @@ header {
         opacity: 1;
         // transform: rotateX(0deg);
       }
+    }
+  }
+
+  &:hover {
+    .video-wrapper {
+      .project-description {
+        opacity: 1;
+        
+      }
+
+      &::before {
+        position: absolute;
+        content: "";
+        height: 100%;
+        width: 100%;
+        background-color: rgba(76, 140, 157, 0.7);
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 50;
+      
+      
+      }
+    }
+
+    video {
+      transform: scale(0.6);
     }
   }
 }
@@ -731,4 +803,12 @@ header {
   }
 }
 
+@keyframes arrowMove {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  100% {
+    transform: translateY(10px) translateX(5px);
+  }
+}
 

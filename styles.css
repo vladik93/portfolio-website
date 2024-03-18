@@ -32,7 +32,7 @@ a {
 }
 
 h1 {
-  font-size: 5.2rem;
+  font-size: 7.2rem;
 }
 
 h2 {
@@ -57,6 +57,7 @@ img {
 
 video {
   width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -66,6 +67,15 @@ main {
 
 section {
   padding: 4rem 2.4rem;
+}
+
+button {
+  padding: 0.8rem 1.6rem;
+  border: 3px solid #89b9c6;
+  background: none;
+  border-radius: 5px;
+  color: #89b9c6;
+  font-weight: 700;
 }
 
 header {
@@ -236,7 +246,6 @@ header .toggler.open span:nth-child(3) {
   right: 0;
   bottom: 0;
   top: 0;
-  background: rgba(0, 0, 0, 0.35);
   display: block;
   z-index: 0;
 }
@@ -255,7 +264,11 @@ header .toggler.open span:nth-child(3) {
   animation: textMove 0.4s ease-in forwards, textOpacity 1s ease-in forwards;
 }
 .hero .text.name {
-  color: #4C8C9D;
+  background-color: #4C8C9D;
+  background-image: linear-gradient(45deg, rgba(158, 76, 102, 0.9), #1a3036);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .hero .text.role {
   font-weight: 300;
@@ -488,6 +501,7 @@ header .toggler.open span:nth-child(3) {
   flex-direction: column;
   gap: 2.4rem;
   position: relative;
+  width: 100%;
 }
 .projects .animated-text-wrapper {
   position: absolute;
@@ -502,33 +516,70 @@ header .toggler.open span:nth-child(3) {
   position: absolute;
   animation: arrowMove 0.3s ease-in infinite alternate;
 }
-@keyframes arrowMove {
-  0% {
-    transform: translateY(0px) translateX(0px);
-  }
-  100% {
-    transform: translateY(10px) translateX(5px);
-  }
-}
 .projects .project {
   text-align: center;
   perspective: 1000px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
 }
-.projects .project img {
-  border-radius: 20px;
-  object-fit: cover;
-}
-.projects .project video {
-  border-radius: 20px;
-  filter: grayscale(1);
-}
-.projects .project .image-wrapper {
+.projects .project .video-wrapper {
+  flex: 1;
   transform: rotateX(-90deg);
+  width: 100%;
   opacity: 0;
   animation: imageOpacity 1s ease-in forwards 0.5s, imageRotate 0.5s ease-in forwards 0.5s;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.projects .project .video-wrapper .project-description {
+  position: absolute;
+  text-align: start;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  opacity: 0;
+  transition: opacity 0.5s ease-in, background-color 1s ease-in;
+}
+.projects .project .video-wrapper .project-description .button-wrapper {
+  padding-top: 2.4rem;
+}
+.projects .project video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  flex: 1;
+  transform: scale(1);
+  border-radius: 10px;
+  transition: transform 0.3s ease-in;
 }
 .projects .project.show .image-wrapper {
   opacity: 1;
+}
+.projects:hover .video-wrapper .project-description {
+  opacity: 1;
+}
+.projects:hover .video-wrapper::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background-color: rgba(76, 140, 157, 0.7);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 50;
+}
+.projects:hover video {
+  transform: scale(0.6);
 }
 
 @keyframes imageRotate {
@@ -553,6 +604,14 @@ header .toggler.open span:nth-child(3) {
   }
   100% {
     opacity: 1;
+  }
+}
+@keyframes arrowMove {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  100% {
+    transform: translateY(10px) translateX(5px);
   }
 }
 
