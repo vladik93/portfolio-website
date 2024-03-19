@@ -545,11 +545,23 @@ header .toggler.open span:nth-child(3) {
   width: 100%;
   height: 100%;
   z-index: 50;
-  opacity: 0;
   transition: opacity 0.5s ease-in, background-color 1s ease-in;
+}
+.projects .project .video-wrapper .project-description::before {
+  content: "";
+}
+.projects .project .video-wrapper .project-description .title {
+  transform: translateX(-100%) scale(0.5);
+  transition: transform 0.5s ease-in 0.1s;
+}
+.projects .project .video-wrapper .project-description .text {
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in 0.15s;
 }
 .projects .project .video-wrapper .project-description .button-wrapper {
   padding-top: 2.4rem;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in 0.2s;
 }
 .projects .project video {
   height: 100%;
@@ -563,8 +575,17 @@ header .toggler.open span:nth-child(3) {
 .projects .project.show .image-wrapper {
   opacity: 1;
 }
-.projects:hover .video-wrapper .project-description {
-  opacity: 1;
+.projects:hover .video-wrapper .project-description .title {
+  transform: translateX(0%) scale(1);
+  transition: transform 0.5s ease-in;
+}
+.projects:hover .video-wrapper .project-description .text {
+  transform: translateX(0%);
+  transition: transform 0.5s ease-in 0.5s;
+}
+.projects:hover .video-wrapper .project-description .button-wrapper {
+  transform: translateX(0%);
+  transition: transform 0.5s ease-in 1s;
 }
 .projects:hover .video-wrapper::before {
   position: absolute;
@@ -614,5 +635,6 @@ header .toggler.open span:nth-child(3) {
     transform: translateY(10px) translateX(5px);
   }
 }
+@keyframes slideInText {}
 
 /*# sourceMappingURL=styles.css.map */

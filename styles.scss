@@ -711,12 +711,29 @@ header {
         width: 100%;
         height: 100%;
         z-index: 50;
-        opacity: 0;
+        // opacity: 0;
         transition: opacity 0.5s ease-in, background-color 1s ease-in;
+        &::before {
+          content: "";
         
+        }
+        
+
+
+        .title {
+          transform: translateX(-100%) scale(0.5);
+          transition: transform 0.5s ease-in 0.1s;
+        }
+
+        .text {
+          transform: translateX(-100%);
+          transition: transform 0.5s ease-in 0.15s;
+        }
 
         .button-wrapper {
           padding-top: 2.4rem;
+          transform: translateX(-100%);
+          transition: transform 0.5s ease-in 0.2s;
         }
 
       }
@@ -732,6 +749,7 @@ header {
       transform: scale(1);
       border-radius: 10px;
       transition: transform 0.3s ease-in;
+      
     }
 
     &.show {
@@ -745,8 +763,23 @@ header {
   &:hover {
     .video-wrapper {
       .project-description {
-        opacity: 1;
+        // opacity: 1;
         
+        .title {
+          transform: translateX(0%) scale(1);
+          transition: transform 0.5s ease-in;
+        }
+
+        .text {
+          transform: translateX(0%);
+          transition: transform 0.5s ease-in 0.5s;
+
+        }
+        
+        .button-wrapper {
+          transform: translateX(0%);
+          transition: transform 0.5s ease-in 1s;
+        }
       }
 
       &::before {
@@ -812,3 +845,13 @@ header {
   }
 }
 
+// ANIMATIONS
+
+@keyframes slideInText {
+  0% {
+
+  }
+  100% {
+    
+  }
+}
