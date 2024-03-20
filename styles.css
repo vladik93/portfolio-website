@@ -568,11 +568,14 @@ header .toggler.open span:nth-child(3) {
   width: 100%;
   object-fit: cover;
   flex: 1;
-  transform: scale(1);
+  transform: scale(1) rotate(0deg);
   border-radius: 10px;
-  transition: transform 0.3s ease-in;
+  transition: transform 0.3s ease-in, filter 0.5s ease-in;
 }
 .projects .project.show .image-wrapper {
+  opacity: 1;
+}
+.projects:hover .video-wrapper .project-description {
   opacity: 1;
 }
 .projects:hover .video-wrapper .project-description .title {
@@ -592,7 +595,6 @@ header .toggler.open span:nth-child(3) {
   content: "";
   height: 100%;
   width: 100%;
-  background-color: rgba(76, 140, 157, 0.7);
   top: 0;
   left: 0;
   bottom: 0;
@@ -601,8 +603,33 @@ header .toggler.open span:nth-child(3) {
 }
 .projects:hover video {
   transform: scale(0.6);
+  box-shadow: 3px 0px 50px rgba(51, 51, 51, 0.5);
+  filter: blur(8px);
+  animation: pulse 2s ease-in infinite alternate;
 }
 
+@keyframes pulse {
+  0% {
+    filter: blur(8px);
+  }
+  50% {
+    filter: blur(3px);
+  }
+  100% {
+    filter: blur(8px);
+  }
+}
+@keyframes changeColor {
+  0% {
+    background-color: #4C8C9D;
+  }
+  50% {
+    background-color: #9E4C66;
+  }
+  100% {
+    background-color: #4C8C9D;
+  }
+}
 @keyframes imageRotate {
   0% {
     transform: rotateX(-90deg);
