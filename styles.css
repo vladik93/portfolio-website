@@ -32,7 +32,7 @@ a {
 }
 
 h1 {
-  font-size: 7.2rem;
+  font-size: 6rem;
 }
 
 h2 {
@@ -65,17 +65,33 @@ main {
   height: 100%;
 }
 
-section {
-  padding: 4rem 2.4rem;
-}
-
 button {
   padding: 0.8rem 1.6rem;
-  border: 3px solid #89b9c6;
   background: none;
+  border: none;
   border-radius: 5px;
-  color: #89b9c6;
+  color: #2b4f58;
   font-weight: 700;
+  position: relative;
+  outline: none;
+  cursor: pointer;
+  border: 3px solid #2b4f58;
+  transition: color 0.3s ease-in;
+}
+button.filled:hover {
+  color: #fff;
+}
+button.filled::after {
+  position: absolute;
+  content: "";
+  background: #2b4f58;
+  inset: 0;
+  width: 0%;
+  transition: width 0.2s ease-in;
+  z-index: -1;
+}
+button.filled:hover::after {
+  width: 100%;
 }
 
 header {
@@ -238,6 +254,7 @@ header .toggler.open span:nth-child(3) {
   justify-content: center;
   letter-spacing: 5px;
   font-weight: 700;
+  padding: 0.8rem;
 }
 .hero::before {
   content: "";
@@ -265,7 +282,7 @@ header .toggler.open span:nth-child(3) {
 }
 .hero .text.name {
   background-color: #4C8C9D;
-  background-image: linear-gradient(45deg, rgba(158, 76, 102, 0.9), #1a3036);
+  background-image: linear-gradient(45deg, #4C8C9D, #2b4f58);
   background-size: 100%;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -310,9 +327,6 @@ header .toggler.open span:nth-child(3) {
   left: 0;
   background: #4C8C9D;
 }
-.hero button:hover::before {
-  width: 100%;
-}
 .hero i {
   position: absolute;
   opacity: 0;
@@ -320,7 +334,7 @@ header .toggler.open span:nth-child(3) {
   color: #fff;
   transform: translateX(1.2rem) translateY(0);
   animation: down 0.45s ease-in-out infinite alternate-reverse, textOpacity 0.5s ease-in forwards 2.3s;
-  top: -50%;
+  top: 0;
 }
 @keyframes down {
   100% {
@@ -486,8 +500,9 @@ header .toggler.open span:nth-child(3) {
 }
 
 .projects {
-  background-color: #4C8C9D;
-  color: #333;
+  background-color: #2b4f58;
+  background-image: linear-gradient(45deg, #4C8C9D, #2b4f58);
+  color: #fff;
   flex-direction: column;
   align-items: center;
   display: flex;
@@ -498,8 +513,9 @@ header .toggler.open span:nth-child(3) {
   padding: 0rem 0.8rem;
   padding-top: 6.2rem;
   display: flex;
+  flex-direction: column;
   overflow: scroll;
-  gap: 2.4rem;
+  gap: 4.8rem;
   position: relative;
 }
 .projects .animated-text-wrapper {
@@ -518,13 +534,47 @@ header .toggler.open span:nth-child(3) {
 .projects .project {
   text-align: center;
   perspective: 1000px;
-  min-height: 500px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
-  flex: 0 0 100%;
 }
-.projects .project .video-wrapper {
+.projects .project:hover .video-wrapper .project-description {
+  opacity: 1;
+}
+.projects .project:hover .video-wrapper .project-description::before {
+  opacity: 1;
+}
+.projects .project:hover .video-wrapper .project-description .title {
+  transform: translateX(0%) scale(1);
+  transition: transform 0.5s ease-in;
+}
+.projects .project:hover .video-wrapper .project-description .text {
+  transform: translateX(0%);
+  transition: transform 0.5s ease-in 0.3s;
+}
+.projects .project:hover .video-wrapper .project-description .button-wrapper {
+  transform: translateX(0%);
+  transition: transform 0.5s ease-in 0.5s;
+}
+.projects .project:hover .video-wrapper::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 50;
+}
+.projects .project:hover video {
+  transform: scale(0.6) translate(50px, 50px);
+  box-shadow: 5px 0px 50px rgba(51, 51, 51, 0.5);
+  filter: blur(6px);
+  animation: pulse 2s ease-in infinite alternate;
+}
+.projects .video-wrapper {
   flex: 1;
   transform: rotateX(-90deg);
   width: 100%;
@@ -534,95 +584,74 @@ header .toggler.open span:nth-child(3) {
   display: flex;
   flex-direction: column;
 }
-.projects .project .video-wrapper .project-description {
+.projects .video-wrapper .project-description {
+  overflow: hidden;
   position: absolute;
   text-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  padding: 1.6rem;
   width: 100%;
-  height: 100%;
+  height: 250px;
   z-index: 50;
-  transition: opacity 0.5s ease-in, background-color 1s ease-in;
+  opacity: 0;
+  color: #333;
+  transition: opacity 0.5s ease-in 0.3s, background-color 1s ease-in;
 }
-.projects .project .video-wrapper .project-description::before {
+.projects .video-wrapper .project-description::before {
   opacity: 0;
   position: absolute;
   content: "";
-  background: rgba(171, 206, 215, 0.8);
-  filter: blur(3px);
-  height: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  height: 100%;
   width: 100%;
   top: 0;
   left: 0;
   transition: opacity 0.5s ease-in;
 }
-.projects .project .video-wrapper .project-description .title {
+.projects .video-wrapper .project-description .title {
   transform: translateX(-100%) scale(0.5);
   transition: transform 0.5s ease-in 0.1s;
 }
-.projects .project .video-wrapper .project-description .text {
+.projects .video-wrapper .project-description .text {
   transform: translateX(-100%);
   transition: transform 0.5s ease-in 0.15s;
 }
-.projects .project .video-wrapper .project-description .button-wrapper {
+.projects .video-wrapper .project-description .button-wrapper {
   padding-top: 2.4rem;
   transform: translateX(-100%);
   transition: transform 0.5s ease-in 0.2s;
 }
-.projects .project video {
+.projects video {
   object-fit: cover;
+  flex: 1;
   transform: scale(1) translate(0px);
   border-radius: 10px;
   transition: transform 0.3s ease-in, filter 0.5s ease-in;
 }
-.projects .project.show .image-wrapper {
+.projects.show .image-wrapper {
   opacity: 1;
-}
-.projects:hover .video-wrapper .project-description {
-  opacity: 1;
-}
-.projects:hover .video-wrapper .project-description::before {
-  opacity: 1;
-}
-.projects:hover .video-wrapper .project-description .title {
-  transform: translateX(0%) scale(1);
-  transition: transform 0.5s ease-in;
-}
-.projects:hover .video-wrapper .project-description .text {
-  transform: translateX(0%);
-  transition: transform 0.5s ease-in 0.5s;
-}
-.projects:hover .video-wrapper .project-description .button-wrapper {
-  transform: translateX(0%);
-  transition: transform 0.5s ease-in 1s;
-}
-.projects:hover .video-wrapper::before {
-  position: absolute;
-  content: "";
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 50;
-}
-.projects:hover video {
-  transform: scale(0.7) translate(50px, 30px);
-  box-shadow: 3px 0px 50px rgba(51, 51, 51, 0.5);
 }
 
 @keyframes pulse {
   0% {
-    filter: blur(8px);
+    filter: blur(6px);
   }
   50% {
-    filter: blur(3px);
+    filter: blur(2px);
   }
   100% {
-    filter: blur(8px);
+    filter: blur(6px);
   }
 }
 @keyframes changeColor {
