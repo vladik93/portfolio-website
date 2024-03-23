@@ -143,6 +143,12 @@ header .toggler.open span:nth-child(3) {
   transform: translate(-50%, 0) rotate(-45deg);
 }
 
+.tag {
+  font-size: 3.6rem;
+  font-weight: 300;
+  color: #fff;
+}
+
 .sidenav {
   position: fixed;
   top: 0;
@@ -518,6 +524,9 @@ header .toggler.open span:nth-child(3) {
   gap: 4.8rem;
   position: relative;
 }
+.projects .tag {
+  color: #4C8C9D;
+}
 .projects .animated-text-wrapper {
   position: absolute;
   top: 0px;
@@ -641,6 +650,102 @@ header .toggler.open span:nth-child(3) {
 }
 .projects.show .image-wrapper {
   opacity: 1;
+}
+
+.pricing {
+  overflow: hidden;
+  position: relative;
+  padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pricing::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-10%) translateY(-10%);
+  width: 1000px;
+  height: 1000px;
+  background: rgba(103, 165, 181, 0.8);
+  border-radius: 100%;
+}
+.pricing h2 {
+  color: #4C8C9D;
+}
+.pricing .pricing-wrapper {
+  padding-top: 6.2rem;
+  display: flex;
+  overflow: scroll;
+  gap: 1.6rem;
+}
+.pricing .pricing-item {
+  flex: 0 0 90%;
+  background: none;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(43, 80, 89, 0.5);
+  backdrop-filter: blur(20px);
+}
+.pricing .pricing-item .top {
+  background: #4C8C9D;
+  box-shadow: 0px 3px 10px 5px rgba(43, 79, 88, 0.7);
+  padding: 1.6rem;
+  border-radius: 10px;
+}
+.pricing .pricing-item .top .header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+.pricing .pricing-item .bottom {
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem;
+  gap: 1.6rem;
+}
+.pricing .pricing-item .bottom ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.pricing .pricing-item .bottom li {
+  display: flex;
+  gap: 0.8rem;
+  font-size: 1.6rem;
+}
+.pricing .pricing-item .bottom li i {
+  color: #9E4C66;
+}
+.pricing .pricing-item .bottom li.disabled {
+  opacity: 0.6;
+}
+.pricing .pricing-item .bottom li.disabled i {
+  color: #999999;
+}
+.pricing .pricing-item .bottom button {
+  position: relative;
+  width: 100%;
+  font-size: 2.4rem;
+  border-color: #4C8C9D;
+}
+.pricing .pricing-item .bottom button::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  background: #4C8C9D;
+  top: 0;
+  left: 0;
+  transition: width 0.3s ease-in;
+  z-index: -1;
+}
+.pricing .pricing-item .bottom button:hover {
+  color: #fff;
+}
+.pricing .pricing-item .bottom button:hover::before {
+  width: 100%;
 }
 
 @keyframes pulse {

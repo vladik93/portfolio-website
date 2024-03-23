@@ -185,6 +185,12 @@ header {
   }
 }
 
+.tag {
+  font-size: 3.6rem;
+  font-weight: 300;
+  color: #fff;
+}
+
 .sidenav {
  position: fixed;
  top: 0;
@@ -684,6 +690,10 @@ header {
  
   }
 
+  .tag {
+    color: #4C8C9D;
+  }
+
   .animated-text-wrapper {
     position: absolute;
     top: 0px;
@@ -841,6 +851,7 @@ header {
           transform: translateX(-100%);
           transition: transform 0.5s ease-in 0.2s;
         }
+        
 
       }
     }
@@ -865,6 +876,133 @@ header {
   }
 
   
+
+
+  .pricing {
+    // background: url(./images/pricing/pricing_bg_2.jpg) no-repeat;
+    // background-position: center center;
+    // background-size: cover;
+    // min-height: 150px;
+    // background: red;
+    overflow: hidden;
+    position: relative;
+    padding: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-10%) translateY(-10%);
+      width: 1000px;
+      height: 1000px;
+      background: lighten(rgba(76, 140, 157, 0.8), 10%);
+      border-radius: 100%;
+    }
+
+    h2 {
+      color: #4C8C9D;
+    }
+
+    .pricing-wrapper {
+    
+      // padding: 3.2rem;
+      padding-top: 6.2rem;
+      display: flex;
+      overflow: scroll;
+      gap: 1.6rem;
+      
+    }
+    
+
+    .pricing-item {
+      
+      flex: 0 0 90%;
+      // min-height: 350px;
+      background: none;
+      // border: 1px solid #fff;
+      border-radius: 10px;
+      overflow: hidden;
+       background: darken(rgba(76, 141, 158, 0.5), 20%);
+        backdrop-filter: blur(20px);
+      
+      .top {
+        background: #4C8C9D;
+        box-shadow: 0px 3px 10px 5px darken(rgba(76, 140, 157, 0.7), 20%);
+        padding: 1.6rem;
+        border-radius: 10px;
+
+        .header {
+          display: flex;
+          flex-direction: column;
+          gap: 1.6rem;
+        }
+      }
+      .bottom {
+       
+        display: flex;
+        flex-direction: column;
+        padding: 1.6rem;
+        gap: 1.6rem;
+        ul {
+          display: flex;
+          flex-direction: column;
+          gap: 0.8rem;
+        }
+
+        li {
+          display: flex; 
+          gap: 0.8rem;
+          font-size: 1.6rem;
+          
+          i {
+            color: #9E4C66;
+          }
+
+          &.disabled {
+            opacity: 0.6;
+            i {
+              color: #999999;
+            }
+          }
+        }
+
+        button {
+          position: relative;
+          width: 100%;
+          font-size: 2.4rem;
+          border-color:#4C8C9D;
+
+          &::before {
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 100%;
+            background: #4C8C9D;
+            top: 0;
+            left: 0;
+            transition: width 0.3s ease-in;
+            z-index: -1;
+          }
+
+          &:hover {
+            color: #fff;
+          }
+
+          &:hover::before {
+            width: 100%;
+          }
+          
+          
+        }
+      }
+
+    }
+  }
 
 @keyframes pulse {
   0% {
