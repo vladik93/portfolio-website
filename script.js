@@ -37,3 +37,12 @@ skillTransitionEls.forEach(skillTransitEl => {
 
 // PRICING SECTION
 
+const pricingSlideBtnRight = document.getElementById('pricing-slide-button-right');
+const pricingSlideBtnLeft = document.getElementById('pricing-slide-button-left');
+
+const pricingInnerWrapperEl = document.getElementById('pricing-inner-wrapper');
+
+pricingSlideBtnRight.addEventListener('click', () => {
+  console.log(pricingInnerWrapperEl);
+  pricingInnerWrapperEl.style.transform = "translateX(-100%)";
+});
