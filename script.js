@@ -46,3 +46,9 @@ pricingSlideBtnRight.addEventListener('click', () => {
   console.log(pricingInnerWrapperEl);
   pricingInnerWrapperEl.style.transform = "translateX(-100%)";
 });
+
+
+pricingSlideBtnLeft.addEventListener('click', () => {
+  console.log(pricingInnerWrapperEl);
+  pricingInnerWrapperEl.style.transform = "translateX(0%)";
+});

@@ -940,15 +940,38 @@ header {
         left: -0.8rem;
         // transform: translateX(3.2rem);
         // background: red;
+
+        i {
+          animation: moveLeft 0.7s ease-in infinite alternate;
+          transform: translateX(0px);
+        }
       }
 
       &:nth-of-type(2) {
         right: -0.8rem;
+
+        i {
+          animation: moveRight 0.7s ease-in infinite alternate;
+          transform: translateX(0px);
+        }
       }
 
-  
-      
+      i {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1.8rem
+      }
+    }
 
+    @keyframes moveLeft {
+      100% {
+        transform: translateX(-5px);
+      }
+    }
+
+    @keyframes moveRight {
+      100% {
+        transform: translateX(5px);
+      }
     }
     
 
@@ -956,8 +979,9 @@ header {
       display: flex;
       gap: 1.6rem;
       width: 100%;
-      transform: translateX(-100%);
-      transition: transform 0.5s ease-in;
+      // transform: translateX(100%);
+      transition: transform 0.3s ease-in;
+      padding: 0.8rem;
     }
 
     
