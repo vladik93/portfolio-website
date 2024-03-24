@@ -7,6 +7,9 @@ const togglerEl = document.getElementById("toggler");
 const sidenavOverlayEl = document.getElementById('sidenav-overlay');
 const sidenavEl = document.getElementById('sidenav');
 
+// PRICING ANIMATION
+const pricingWrapperEl = document.getElementById('pricing-wrapper');
+
 
 togglerEl.addEventListener('click', (e) => {
   togglerEl.classList.toggle('open');
@@ -31,3 +34,6 @@ let observer = new IntersectionObserver((entries => {
 skillTransitionEls.forEach(skillTransitEl => {
   observer.observe(skillTransitEl);
 })
+
+// PRICING SECTION
+

@@ -653,7 +653,7 @@ header .toggler.open span:nth-child(3) {
 }
 
 .pricing {
-  overflow: hidden;
+  overflow-y: hidden;
   position: relative;
   padding: 4rem 0;
   display: flex;
@@ -666,8 +666,8 @@ header .toggler.open span:nth-child(3) {
   top: 50%;
   left: 50%;
   transform: translateX(-10%) translateY(-10%);
-  width: 1000px;
-  height: 1000px;
+  width: 1500px;
+  height: 1500px;
   background: rgba(103, 165, 181, 0.8);
   border-radius: 100%;
 }
@@ -675,16 +675,18 @@ header .toggler.open span:nth-child(3) {
   color: #4C8C9D;
 }
 .pricing .pricing-wrapper {
+  width: 100%;
+  padding: 0 0.8rem;
   padding-top: 6.2rem;
   display: flex;
-  overflow: scroll;
   gap: 1.6rem;
+  transform: translateX(0%);
+  transition: transform 1s ease-in;
 }
 .pricing .pricing-item {
-  flex: 0 0 90%;
+  flex: 0 0 100%;
   background: none;
   border-radius: 10px;
-  overflow: hidden;
   background: rgba(43, 80, 89, 0.5);
   backdrop-filter: blur(20px);
 }
