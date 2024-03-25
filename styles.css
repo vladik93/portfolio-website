@@ -670,6 +670,7 @@ header .toggler.open span:nth-child(3) {
   width: 1500px;
   height: 1500px;
   border-radius: 100%;
+  transition: background 0.5s ease-in;
 }
 .pricing h2 {
   color: #4C8C9D;
@@ -735,6 +736,7 @@ header .toggler.open span:nth-child(3) {
   backdrop-filter: blur(20px);
 }
 .pricing .pricing-item .top {
+  transition: background 0.5s ease-in, color 0.3s ease-in;
   box-shadow: 0px 3px 10px 5px rgba(43, 79, 88, 0.7);
   padding: 1.6rem;
   border-radius: 10px;
