@@ -895,7 +895,7 @@ header {
       transform: translateX(-10%) translateY(-10%);
       width: 1500px;
       height: 1500px;
-      background: lighten(rgba(76, 140, 157, 0.8), 10%);
+      
       border-radius: 100%;
     }
 
@@ -917,7 +917,7 @@ header {
     .pricing-slide-button {
       position: absolute;
       transform: translateY(50%);
-      background: rgba(51, 51, 51, 0.3);
+      // background: rgba(51, 51, 51, 0.3);
       height: 50px;
       width: 50px;
       border-radius: 100%;
@@ -928,7 +928,6 @@ header {
       justify-content: center;
       align-items: center;
       // color: #fff;
-      border-color:rgba(76, 140, 157, 0.7);
 
       &:nth-of-type(1) {
         left: -0.8rem;
@@ -982,7 +981,7 @@ header {
       backdrop-filter: blur(20px);
       
       .top {
-        background: #4C8C9D;
+      
         box-shadow: 0px 3px 10px 5px darken(rgba(76, 140, 157, 0.7), 20%);
         padding: 1.6rem;
         border-radius: 10px;
@@ -1056,16 +1055,26 @@ header {
 
     }
 
-    &.pricing-2 {
+    &.basic {
       &::before {
-        background: #fff;
+        background: lighten(rgba(76, 140, 157, 0.8), 10%);
       }
 
-      .pricing-slide-button {
-        border-color: rgba(255, 255, 255, 0.7);
-      }
       .top {
-        background: #fff;
+        background: #4C8C9D;
+      }
+    }
+
+    &.pro {
+      &::before {
+        background: darken(rgba(232, 233, 235, 0.8), 10%);
+      }
+
+      // .pricing-slide-button {
+      //   border-color: rgba(255, 255, 255, 0.7);
+      // }
+      .top {
+        background: #E8E9EB;
         color: #333;
       }
 
@@ -1078,6 +1087,31 @@ header {
 
           &::before {
             background: #fff;
+            
+          }
+        }
+      }
+    }
+
+    &.premium {
+      &::before {
+        background: lighten(rgba(238, 195, 115, 0.8), 10%);
+      }
+
+      .top {
+        background: #EEC373;
+        color: #333;
+      }
+
+      .bottom {
+        button {
+          border-color: #EEC373;
+          &:hover {
+            color: #333;
+          }
+
+          &::before {
+            background: #EEC373;
             
           }
         }

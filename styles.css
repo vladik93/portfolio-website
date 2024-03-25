@@ -669,7 +669,6 @@ header .toggler.open span:nth-child(3) {
   transform: translateX(-10%) translateY(-10%);
   width: 1500px;
   height: 1500px;
-  background: rgba(103, 165, 181, 0.8);
   border-radius: 100%;
 }
 .pricing h2 {
@@ -683,7 +682,6 @@ header .toggler.open span:nth-child(3) {
 .pricing .pricing-slide-button {
   position: absolute;
   transform: translateY(50%);
-  background: rgba(51, 51, 51, 0.3);
   height: 50px;
   width: 50px;
   border-radius: 100%;
@@ -693,7 +691,6 @@ header .toggler.open span:nth-child(3) {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-color: rgba(76, 140, 157, 0.7);
 }
 .pricing .pricing-slide-button:nth-of-type(1) {
   left: -0.8rem;
@@ -738,7 +735,6 @@ header .toggler.open span:nth-child(3) {
   backdrop-filter: blur(20px);
 }
 .pricing .pricing-item .top {
-  background: #4C8C9D;
   box-shadow: 0px 3px 10px 5px rgba(43, 79, 88, 0.7);
   padding: 1.6rem;
   border-radius: 10px;
@@ -797,24 +793,43 @@ header .toggler.open span:nth-child(3) {
 .pricing .pricing-item .bottom button:hover::before {
   width: 100%;
 }
-.pricing.pricing-2::before {
-  background: #fff;
+.pricing.basic::before {
+  background: rgba(103, 165, 181, 0.8);
 }
-.pricing.pricing-2 .pricing-slide-button {
-  border-color: rgba(255, 255, 255, 0.7);
+.pricing.basic .top {
+  background: #4C8C9D;
 }
-.pricing.pricing-2 .top {
-  background: #fff;
+.pricing.pro::before {
+  background: rgba(205, 207, 211, 0.8);
+}
+.pricing.pro .top {
+  background: #E8E9EB;
   color: #333;
 }
-.pricing.pricing-2 .bottom button {
+.pricing.pro .bottom button {
   border-color: #fff;
 }
-.pricing.pricing-2 .bottom button:hover {
+.pricing.pro .bottom button:hover {
   color: #333;
 }
-.pricing.pricing-2 .bottom button::before {
+.pricing.pro .bottom button::before {
   background: #fff;
+}
+.pricing.premium::before {
+  background: rgba(244, 214, 160, 0.8);
+}
+.pricing.premium .top {
+  background: #EEC373;
+  color: #333;
+}
+.pricing.premium .bottom button {
+  border-color: #EEC373;
+}
+.pricing.premium .bottom button:hover {
+  color: #333;
+}
+.pricing.premium .bottom button::before {
+  background: #EEC373;
 }
 
 @keyframes pulse {
