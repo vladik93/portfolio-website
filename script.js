@@ -7,8 +7,7 @@ const togglerEl = document.getElementById("toggler");
 const sidenavOverlayEl = document.getElementById('sidenav-overlay');
 const sidenavEl = document.getElementById('sidenav');
 
-// PRICING ANIMATION
-const pricingWrapperEl = document.getElementById('pricing-wrapper');
+
 
 
 togglerEl.addEventListener('click', (e) => {
@@ -36,19 +35,29 @@ skillTransitionEls.forEach(skillTransitEl => {
 })
 
 // PRICING SECTION
-
-const pricingSlideBtnRight = document.getElementById('pricing-slide-button-right');
-const pricingSlideBtnLeft = document.getElementById('pricing-slide-button-left');
-
+const pricingWrapperEl = document.getElementById('pricing-wrapper');
 const pricingInnerWrapperEl = document.getElementById('pricing-inner-wrapper');
 
-pricingSlideBtnRight.addEventListener('click', () => {
-  console.log(pricingInnerWrapperEl);
-  pricingInnerWrapperEl.style.transform = "translateX(-100%)";
+const pricingItemEls = document.querySelectorAll('.pricing-item');
+
+let pricingItemCurrent = 0;
+
+const pricingSlideBtnBack = document.getElementById('pricing-slide-button-back');
+const pricingSlideBtnForward = document.getElementById('pricing-slide-button-forward');
+
+pricingSlideBtnForward.addEventListener('click', () => {
+  if(pricingItemCurrent < pricingItemEls.length - 1) {
+    pricingItemCurrent++;
+
+    pricingInnerWrapperEl.style.transform = `translateX(-${pricingItemCurrent * 100}%)`;
+  }
 });
 
+pricingSlideBtnBack.addEventListener('click', () => {
+  if(pricingItemCurrent > 0) {
+    pricingItemCurrent--;
 
-pricingSlideBtnLeft.addEventListener('click', () => {
-  console.log(pricingInnerWrapperEl);
-  pricingInnerWrapperEl.style.transform = "translateX(0%)";
-});
+    pricingInnerWrapperEl.style.transform = `translateX(-${pricingItemCurrent * 100}%)`;
+  }
+})
+

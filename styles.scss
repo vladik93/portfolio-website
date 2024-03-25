@@ -879,11 +879,6 @@ header {
 
 
   .pricing {
-    // background: url(./images/pricing/pricing_bg_2.jpg) no-repeat;
-    // background-position: center center;
-    // background-size: cover;
-    // min-height: 150px;
-    // background: red;
     width: 100%;
     overflow: hidden;
     position: relative;
@@ -891,7 +886,6 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 
     &::before {
       content: "";
@@ -908,7 +902,6 @@ header {
     h2 {
       color: #4C8C9D;
     }
-
     
     .pricing-wrapper {
       width: 100%;
@@ -924,7 +917,7 @@ header {
     .pricing-slide-button {
       position: absolute;
       transform: translateY(50%);
-      background: rgba(51, 51, 51, 0.6);
+      background: rgba(51, 51, 51, 0.3);
       height: 50px;
       width: 50px;
       border-radius: 100%;
@@ -935,12 +928,10 @@ header {
       justify-content: center;
       align-items: center;
       // color: #fff;
+      border-color:rgba(76, 140, 157, 0.7);
 
       &:nth-of-type(1) {
         left: -0.8rem;
-        // transform: translateX(3.2rem);
-        // background: red;
-
         i {
           animation: moveLeft 0.7s ease-in infinite alternate;
           transform: translateX(0px);
@@ -974,7 +965,6 @@ header {
       }
     }
     
-
     .pricing-inner-wrapper {
       display: flex;
       gap: 1.6rem;
@@ -984,15 +974,12 @@ header {
       padding: 0.8rem;
     }
 
-    
-
-    .pricing-item {
-      
+    .pricing-item {  
       flex: 0 0 100%;
       background: none;
       border-radius: 10px;
-       background: darken(rgba(76, 141, 158, 0.5), 20%);
-        backdrop-filter: blur(20px);
+      background: darken(rgba(76, 141, 158, 0.5), 20%);
+      backdrop-filter: blur(20px);
       
       .top {
         background: #4C8C9D;
@@ -1041,6 +1028,7 @@ header {
           width: 100%;
           font-size: 2.4rem;
           border-color:#4C8C9D;
+          color: #fff;
 
           &::before {
             content: "";
@@ -1066,6 +1054,34 @@ header {
         }
       }
 
+    }
+
+    &.pricing-2 {
+      &::before {
+        background: #fff;
+      }
+
+      .pricing-slide-button {
+        border-color: rgba(255, 255, 255, 0.7);
+      }
+      .top {
+        background: #fff;
+        color: #333;
+      }
+
+      .bottom {
+        button {
+          border-color: #fff;
+          &:hover {
+            color: #333;
+          }
+
+          &::before {
+            background: #fff;
+            
+          }
+        }
+      }
     }
   }
 
